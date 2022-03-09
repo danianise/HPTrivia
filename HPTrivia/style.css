@@ -3,7 +3,7 @@
     height: auto;
 }
 
-#submit {
+#submit1 {
     margin: 10px;
     padding: 5px 50px;
     border-radius: 25px;
@@ -15,6 +15,23 @@
     background-image: linear-gradient(to right, #a60cb4 0%, #211fa0 51%, #211fa0 100%)
 }
 
-#submit:hover { 
+#submit1:hover { 
+    background-image: linear-gradient(to left, #a60cb4 0%, #a60cb4 51%, #211fa0 100%)
+}
+
+.submitGreaterThan1 {
+    display: none;
+    margin: 10px;
+    padding: 5px 50px;
+    border-radius: 25px;
+    font-size: 15px;
+    text-align: center;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 0 20px #eee;
+    background-image: linear-gradient(to right, #a60cb4 0%, #211fa0 51%, #211fa0 100%)
+}
+
+.submitGreaterThan1:hover { 
     background-image: linear-gradient(to left, #a60cb4 0%, #a60cb4 51%, #211fa0 100%)
 }
