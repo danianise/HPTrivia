@@ -10,13 +10,15 @@ let C = document.querySelector('#C')
 let D = document.querySelector('#D')
 //variable for all radio buttons
 let radioButtons = document.querySelectorAll(".radio")
-// console.log(allRadioButtons)
 //variable for all answers
 let answer = document.querySelectorAll(".answer")
 //variables to increase score with correct answers
 let score = 0
 let scoreIncrement = 1/21
 let scoreText = document.querySelector('#scoreNum')
+//variable for the location of the question number
+question = 1
+let questionNum = document.querySelector('#questionNum')
 //variable for the location of the question
 let questionText = document.querySelector('#question')
 //variables to help randomizer
@@ -131,7 +133,7 @@ let level2 = [
 ]
 
 let level3 = [
-    {question: "Where does Dumbledore's Army go to learn self-defense?",
+    {question: "Where does Dumbledore's Army go to learn defensive magic?",
     answerA: "A. Ravenclaw Tower",
     answerB: "B. The Owlry",
     answerC: "C. The Hog's Head Pub",
@@ -399,7 +401,6 @@ function loadQuestionLvl1() {
     B.innerText = `${level1[randomLvl1].answerB}`
     C.innerText = `${level1[randomLvl1].answerC}`
     D.innerText = `${level1[randomLvl1].answerD}`
-    
 }
 
 //call the function to set the first question on page load
@@ -463,10 +464,25 @@ function loadQuestionLvl7() {
 //this function checks whether the level 1 selected answer is correct, with appropriate alerts
 function submit1() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level1[savedRandomLvl1].correctAnswer){
+//if correct and have answered less than 3 questions, load another level 1 question
+    if (buttonChecked === level1[savedRandomLvl1].correctAnswer && questionNum.innerText < 3){
+        alert('Correct!')
+        loadQuestionLvl1()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered more than 4 questions, load level 2 question
+    } else if (buttonChecked === level1[savedRandomLvl1].correctAnswer && questionNum.innerText >= 3){
         alert('Correct!')
         loadQuestionLvl2()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         console.log(score)
@@ -475,17 +491,37 @@ function submit1() {
         //change displayed level to level 2
         document.querySelector('#level').innerText = `2: Rubeus Hagrid`
         //change levelCharacter image
-        document.querySelector('#levelCharacter').src = "https://i.imgur.com/W4BiAuo.png"
+        document.querySelector('#levelCharacter').src = "https://i.imgur.com/aT5iCCt.png"
         //hide submit1 button
         document.querySelector('#submit1').style.display = "none"
         //show submit2 button
         document.querySelector('#submit2').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 1 question displays next
-    } else if (buttonChecked !== level1[savedRandomLvl1].correctAnswer){
+//if incorrect, and have answered less than 7 questions, load another level 1 question
+    } else if (buttonChecked !== level1[savedRandomLvl1].correctAnswer && questionNum.innerText < 7){
         loadQuestionLvl1()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is greater than or equal to 7
+    } else if (buttonChecked !== level1[savedRandomLvl1].correctAnswer && questionNum.innerText >=7){
+        loadQuestionLvl2()
+        alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //change displayed level to level 2
+        document.querySelector('#level').innerText = `2: Rubeus Hagrid`
+        //change levelCharacter image
+        document.querySelector('#levelCharacter').src = "https://i.imgur.com/aT5iCCt.png"
+        //hide submit1 button
+        document.querySelector('#submit1').style.display = "none"
+        //show submit2 button
+        document.querySelector('#submit2').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
@@ -496,12 +532,28 @@ document.querySelector('#submit1').addEventListener('click', submit1)
 //this function checks whether the level 2 selected answer is correct, with appropriate alerts
 function submit2() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level2[savedRandomLvl2].correctAnswer){
+//if correct and have answered less than 6 questions, load another level 2 question
+    if (buttonChecked === level2[savedRandomLvl2].correctAnswer && questionNum.innerText < 6){
+        alert('Correct!')
+        loadQuestionLvl2()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered more than 6 questions, load level 3 question
+    } else if (buttonChecked === level2[savedRandomLvl2].correctAnswer && questionNum.innerText >= 6){
         alert('Correct!')
         loadQuestionLvl3()
-        //increment score
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
+        console.log(score)
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
         //change displayed level to level 3
@@ -514,25 +566,61 @@ function submit2() {
         document.querySelector('#submit3').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 2 question displays next
-    } else if (buttonChecked !== level2[savedRandomLvl2].correctAnswer){
+//if incorrect, and have answered less than 14 questions, load another level 2 question
+    } else if (buttonChecked !== level2[savedRandomLvl2].correctAnswer && questionNum.innerText < 14){
         loadQuestionLvl2()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is greater than or equal to 14 load level 3 question
+    } else if (buttonChecked !== level2[savedRandomLvl2].correctAnswer && questionNum.innerText >=14){
+        loadQuestionLvl3()
+        alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //change displayed level to level 3
+        document.querySelector('#level').innerText = `3: Ron Weasley`
+        //change levelCharacter image
+        document.querySelector('#levelCharacter').src = "https://i.imgur.com/oIMmddd.png"
+        //hide submit2 button
+        document.querySelector('#submit2').style.display = "none"
+        //show submit3 button
+        document.querySelector('#submit3').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit2 button, runs submit2 function
 document.querySelector('#submit2').addEventListener('click', submit2)
 
 //this function checks whether the level 3 selected answer is correct, with appropriate alerts
 function submit3() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level3[savedRandomLvl3].correctAnswer){
+//if correct and have answered less than 9 questions, load another level 3 question
+    if (buttonChecked === level3[savedRandomLvl3].correctAnswer && questionNum.innerText < 9){
+        alert('Correct!')
+        loadQuestionLvl3()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered more than 9 questions, load level 4 question
+    } else if (buttonChecked === level3[savedRandomLvl3].correctAnswer && questionNum.innerText >= 9){
         alert('Correct!')
         loadQuestionLvl4()
-        //increment score
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
@@ -546,25 +634,51 @@ function submit3() {
         document.querySelector('#submit4').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 3 question displays next
-    } else if (buttonChecked !== level3[savedRandomLvl3].correctAnswer){
+//if incorrect, and have answered less than max(21), load another level 3 question
+    } else if (buttonChecked !== level3[savedRandomLvl3].correctAnswer && questionNum.innerText < 21){
         loadQuestionLvl3()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is equal to max(21) **END GAME**
+    } else if (buttonChecked !== level3[savedRandomLvl3].correctAnswer && questionNum.innerText >= 21){
+        // loadQuestionLvl3()
+        alert('Incorrect! GAME OVER')
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit3 button, runs submit3 function
 document.querySelector('#submit3').addEventListener('click', submit3)
 
 //this function checks whether the level 4 selected answer is correct, with appropriate alerts
 function submit4() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level4[savedRandomLvl4].correctAnswer){
+//if correct and have answered less than 12 questions, load another level 4 question
+    if (buttonChecked === level4[savedRandomLvl4].correctAnswer && questionNum.innerText < 12){
+        alert('Correct!')
+        loadQuestionLvl4()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered 12 or more questions, load level 5 question
+    } else if (buttonChecked === level4[savedRandomLvl4].correctAnswer && questionNum.innerText >= 12){
         alert('Correct!')
         loadQuestionLvl5()
-        //increment score
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
@@ -578,26 +692,52 @@ function submit4() {
         document.querySelector('#submit5').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 4 question displays next
-    } else if (buttonChecked !== level4[savedRandomLvl4].correctAnswer){
+//if incorrect, and have answered less than max(21), load another level 4 question
+    } else if (buttonChecked !== level4[savedRandomLvl4].correctAnswer && questionNum.innerText < 21){
         loadQuestionLvl4()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is equal to max(21) **END GAME**
+    } else if (buttonChecked !== level4[savedRandomLvl4].correctAnswer && questionNum.innerText >= 21){
+        alert('Incorrect! GAME OVER')
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit4 button, runs submit4 function
 document.querySelector('#submit4').addEventListener('click', submit4)
 
 //this function checks whether the level 5 selected answer is correct, with appropriate alerts
 function submit5() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level5[savedRandomLvl5].correctAnswer){
+//if correct and have answered less than 15 questions, load another level 5 question
+    if (buttonChecked === level5[savedRandomLvl5].correctAnswer && questionNum.innerText < 15){
+        alert('Correct!')
+        loadQuestionLvl5()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered 15 or more questions, load level 6 question
+    } else if (buttonChecked === level5[savedRandomLvl5].correctAnswer && questionNum.innerText >= 15){
         alert('Correct!')
         loadQuestionLvl6()
-        //increment score
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
+        console.log(score)
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
         //change displayed level to level 6
@@ -610,26 +750,52 @@ function submit5() {
         document.querySelector('#submit6').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 5 question displays next
-    } else if (buttonChecked !== level5[savedRandomLvl5].correctAnswer){
+//if incorrect, and have answered less than max(21), load another level 5 question
+    } else if (buttonChecked !== level5[savedRandomLvl5].correctAnswer && questionNum.innerText < 21){
         loadQuestionLvl5()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is equal to max(21) **END GAME**
+    } else if (buttonChecked !== level5[savedRandomLvl5].correctAnswer && questionNum.innerText >= 21){
+        alert('Incorrect! GAME OVER')
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit5 button, runs submit5 function
 document.querySelector('#submit5').addEventListener('click', submit5)
 
 //this function checks whether the level 6 selected answer is correct, with appropriate alerts
 function submit6() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level6[savedRandomLvl6].correctAnswer){
+//if correct and have answered less than 18 questions, load another level 6 question
+    if (buttonChecked === level6[savedRandomLvl6].correctAnswer && questionNum.innerText < 18){
+        alert('Correct!')
+        loadQuestionLvl6()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if correct and have answered 18 or more questions, load level 7 question
+    } else if (buttonChecked === level6[savedRandomLvl6].correctAnswer && questionNum.innerText >= 18){
         alert('Correct!')
         loadQuestionLvl7()
-        //increment score
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
+        console.log(score)
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
         //change displayed level to level 7
@@ -642,45 +808,67 @@ function submit6() {
         document.querySelector('#submit7').style.display = "block"
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, a random level 6 question displays next
-    } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer){
+//if incorrect, and have answered less than max(21), load another level 6 question
+    } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer && questionNum.innerText < 21){
         loadQuestionLvl6()
         alert('Incorrect!')
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is equal to max(21) **END GAME**
+    } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer && questionNum.innerText >= 21){
+        alert('Incorrect! GAME OVER')
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit6 button, runs submit6 function
 document.querySelector('#submit6').addEventListener('click', submit6)
 
 //this function checks whether the level 7 selected answer is correct, with appropriate alerts
 function submit7() {
     let buttonChecked = document.querySelector('input[name = "radio"]:checked').value
-//if correct,
-    if (buttonChecked === level7[savedRandomLvl7].correctAnswer){
+//if correct and have answered less than 18 questions, load another level 6 question
+    if (buttonChecked === level7[savedRandomLvl7].correctAnswer && questionNum.innerText < 21){
         alert('Correct!')
-        //increment score
+        loadQuestionLvl7()
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //increment score 
         score+=scoreIncrement
         //display the score as a percent
         scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
-        loadQuestionLvl7()
-        // //change displayed level to level 7
-        // document.querySelector('#level').innerText = `7: Albus Dumbledore`
-        // //change levelCharacter image
-        // document.querySelector('#levelCharacter').src = "https://i.imgur.com/4MEVf10.png"
-        // //hide submit6 button
-        // document.querySelector('#submit6').style.display = "none"
-        // //show submit7 button
-        // document.querySelector('#submit7').style.display = "block"
-        // //clear radio button selection
+        //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
-//if incorrect, no addition to score
-    } else if (buttonChecked !== level7[savedRandomLvl7].correctAnswer){
+//if correct and have answered 21 questions, **END GAME
+    } else if (buttonChecked === level7[savedRandomLvl7].correctAnswer && questionNum.innerText >= 21){
+        alert('Correct! GAME OVER')
+        //increment score 
+        score+=scoreIncrement
+        //display the score as a percent
+        scoreText.innerText = Math.round((score * 100)).toFixed(0) + '%'
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect, and have answered less than max(21), load another level 7 question
+    } else if (buttonChecked !== level7[savedRandomLvl7].correctAnswer && questionNum.innerText < 21){
         loadQuestionLvl7()
         alert('Incorrect!')
-        // //clear radio button selection
+        //increment question number
+        question+=1
+        questionNum.innerText = question
+        //clear radio button selection
+        document.querySelector('input[name= "radio"]:checked').checked = false
+//if incorrect and number of questions answered is equal to max(21) **END GAME**
+    } else if (buttonChecked !== level7[savedRandomLvl7].correctAnswer && questionNum.innerText >= 21){
+        alert('Incorrect! GAME OVER')
+        //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
+
 //add event listener to submit7 button, runs submit7 function
 document.querySelector('#submit7').addEventListener('click', submit7)

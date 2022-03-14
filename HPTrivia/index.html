@@ -5,26 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     <title>Harry Potter Trivia</title>
 </head>
 <body>
-    <img id="HPLogo" src="https://i.imgur.com/gakMM5o.png">
-    <h1>Test your knowledge!</h1>
-    <h2>Score:</h2><p id="scoreNum">0</p>
-    <h2>Current Difficulty Level:</h2><p id="level">1: Dudley Dursley</p><img id="levelCharacter" src="https://i.imgur.com/VchwpCU.png">
-    <p id="question"></p>
-    <input type="radio" name="radio" class="radio" id="aRadio" value="A"><span class="answer" id="A"></span></input><br />
-    <input type="radio" name="radio" class="radio" id="bRadio" value="B"><span class="answer" id="B"></span></input><br />
-    <input type="radio" name="radio" class="radio" id="cRadio" value="C"><span class="answer" id="C"></span></input><br />
-    <input type="radio" name="radio" class="radio" id="dRadio" value="D"><span class="answer" id="D"></span></input>
-    <div class="submitButton">
-        <button type="submit" id="submit1">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit2">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit3">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit4">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit5">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit6">SUBMIT</button>
-        <button type="submit" class="submitGreaterThan1" id="submit7">SUBMIT</button>
+    <div id="headerContent">
+        <img id="HPLogo" src="https://i.imgur.com/bkPin4q.png">
+        <h1 id="trivia">Trivia</h1>
+    </div>
+    <div id="content">
+        <h3>Current Difficulty Level:</h3><p id="level">1: Dudley Dursley</p><img id="levelCharacter" src="https://i.imgur.com/VchwpCU.png">
+        <h3>Question:</h3><p id="questionNum">1</p>
+        <p id="question"></p> 
+        <div id="questionsContainer">
+            <input type="radio" name="radio" class="radio" id="aRadio" value="A"><span class="answer" id="A"></span></input><br />
+            <input type="radio" name="radio" class="radio" id="bRadio" value="B"><span class="answer" id="B"></span></input><br />
+            <input type="radio" name="radio" class="radio" id="cRadio" value="C"><span class="answer" id="C"></span></input><br />
+            <input type="radio" name="radio" class="radio" id="dRadio" value="D"><span class="answer" id="D"></span></input>
+        </div>
+        <div class="submitButton">
+            <button type="submit" id="submit1">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit2">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit3">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit4">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit5">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit6">SUBMIT</button>
+            <button type="submit" class="submitGreaterThan1" id="submit7">SUBMIT</button>
+        </div>
+    </div>
+    <div id="scoreDiv">
+        <h2 class="score">Score:<span class="score" id="scoreNum"> 0</span></h2>
     </div>
 
     <script src="script.js"></script>

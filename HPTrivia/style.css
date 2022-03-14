@@ -1,17 +1,71 @@
+body {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: center; */
+    font-family: 'Reenie Beanie', cursive;
+    background: url('https://i.imgur.com/zTvGTVE.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* #headerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+} */
+
+#trivia {
+    align-self: flex-end;
+    font-size: 300%;
+    position: absolute;
+    bottom: 58%;
+    right: 50%;
+    color: silver;
+}
+
 #HPLogo {
-    width: 75%;
+    width: 50%;
     height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* text-align: center; */
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 180%;
+    color: white;
+}
+
+#scoreDiv {
+    display: flex;
+    align-self: flex-start;
+    position: sticky;
+    height: auto;
+    font-size: 150%;
+    color: silver;
+    margin: 0;
+    bottom: 0;
+    left: 85%;
+    margin-right: 2%;
+
 }
 
 #submit1 {
     margin: 10px;
     padding: 5px 50px;
+    border: none;
     border-radius: 25px;
     font-size: 15px;
     text-align: center;
     background-size: 200% auto;
     color: #fff;
-    box-shadow: 0 0 20px #eee;
+    /* box-shadow: 0 0 20px #eee; */
     background-image: linear-gradient(to right, #a60cb4 0%, #211fa0 51%, #211fa0 100%)
 }
 
@@ -34,4 +88,10 @@
 
 .submitGreaterThan1:hover { 
     background-image: linear-gradient(to left, #a60cb4 0%, #a60cb4 51%, #211fa0 100%)
+}
+
+#levelCharacter {
+    height: 20vh;
+    width: 20vw;
+    border-radius: 50%;
 }
