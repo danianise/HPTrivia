@@ -903,7 +903,7 @@ function submit6() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than max(21), load another level 6 question
     } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer && questionNum.innerText < 21){
-        alert(`Incorrect! The correct answer is ${level2[savedRandomLvl2].correctAnswer}`)
+        alert(`Incorrect! The correct answer is ${level6[savedRandomLvl6].correctAnswer}`)
         //remove question that has already been used from the level array
         level6.splice(savedRandomLvl6, 1)
         loadQuestionLvl6()
