@@ -337,7 +337,7 @@ let level6 = [
 ]
 
 let level7 = [
-    {question: "Which row houses the prophecy about Harry and Lord Voldemort in the House of Prophecy?",
+    {question: "Which row houses the prophecy about Harry and Lord Voldemort in the Hall of Prophecy?",
     answerA: "A. Row 7",
     answerB: "B. Row 97",
     answerC: "C. Row 42",
@@ -473,11 +473,11 @@ function submit1() {
         loadQuestionLvl1()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered more than 4 questions, load level 2 question
     } else if (buttonChecked === level1[savedRandomLvl1].correctAnswer && questionNum.innerText >= 3){
@@ -485,11 +485,11 @@ function submit1() {
         loadQuestionLvl2()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 2
         document.querySelector('#level').innerText = `2. Rubeus Hagrid`
         //change levelCharacter image
@@ -502,22 +502,22 @@ function submit1() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than 7 questions, load another level 1 question
     } else if (buttonChecked !== level1[savedRandomLvl1].correctAnswer && questionNum.innerText < 7){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level1[savedRandomLvl1].correctAnswer}`)
         //remove question that has already been used from the level array
         level1.splice(savedRandomLvl1, 1)
         loadQuestionLvl1()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is greater than or equal to 7
     } else if (buttonChecked !== level1[savedRandomLvl1].correctAnswer && questionNum.innerText >=7){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level1[savedRandomLvl1].correctAnswer}`)
         loadQuestionLvl2()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //change displayed level to level 2
         document.querySelector('#level').innerText = `2. Rubeus Hagrid`
         //change levelCharacter image
@@ -544,11 +544,11 @@ function submit2() {
         loadQuestionLvl2()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered more than 6 questions, load level 3 question
     } else if (buttonChecked === level2[savedRandomLvl2].correctAnswer && questionNum.innerText >= 6){
@@ -556,11 +556,11 @@ function submit2() {
         loadQuestionLvl3()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 3
         document.querySelector('#level').innerText = `3. Ron Weasley`
         //change levelCharacter image
@@ -573,22 +573,22 @@ function submit2() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than 14 questions, load another level 2 question
     } else if (buttonChecked !== level2[savedRandomLvl2].correctAnswer && questionNum.innerText < 14){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level2[savedRandomLvl2].correctAnswer}`)
         //remove question that has already been used from the level array
         level2.splice(savedRandomLvl2, 1)
         loadQuestionLvl2()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is greater than or equal to 14 load level 3 question
     } else if (buttonChecked !== level2[savedRandomLvl2].correctAnswer && questionNum.innerText >=14){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level2[savedRandomLvl2].correctAnswer}`)
         loadQuestionLvl3()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //change displayed level to level 3
         document.querySelector('#level').innerText = `3. Ron Weasley`
         //change levelCharacter image
@@ -616,11 +616,11 @@ function submit3() {
         loadQuestionLvl3()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered more than 9 questions, load level 4 question
     } else if (buttonChecked === level3[savedRandomLvl3].correctAnswer && questionNum.innerText >= 9){
@@ -628,11 +628,11 @@ function submit3() {
         loadQuestionLvl4()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 4
         document.querySelector('#level').innerText = `4. Harry Potter`
         //change levelCharacter image
@@ -645,31 +645,45 @@ function submit3() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than max(21), load another level 3 question
     } else if (buttonChecked !== level3[savedRandomLvl3].correctAnswer && questionNum.innerText < 21){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level3[savedRandomLvl3].correctAnswer}`)
         //remove question that has already been used from the level array
         level3.splice(savedRandomLvl3, 1)
         loadQuestionLvl3()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is equal to max(21) **END GAME**
     } else if (buttonChecked !== level3[savedRandomLvl3].correctAnswer && questionNum.innerText >= 21){
-        document.querySelector('#headerContent').style.display = 'none';
-        document.querySelector('#content').style.display = 'none';
-        document.querySelector('#scoreDiv').style.display = 'none';
-        document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
-        document.body.style.backgroundSize = 'cover';
-        document.querySelector('#endGame').style.display = 'flex';
-        document.querySelector('#endScore').innerText = `${scoreText.innerText}%`
+        alert(`Incorrect! The correct answer is ${level3[savedRandomLvl3].correctAnswer}`)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
         if(scoreText.innerText <= 20){
-            document.querySelector('#wizardType').innerText = `Muggle! Never fear, you can always re-read the series to brush-up on your Wizarding World knowledge.`
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
         }
-        // loadQuestionLvl3()
-        // alert('Incorrect! GAME OVER')
-        //clear radio button selection
-        // document.querySelector('input[name= "radio"]:checked').checked = false
     }
 }
 
@@ -687,11 +701,11 @@ function submit4() {
         loadQuestionLvl4()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered 12 or more questions, load level 5 question
@@ -700,11 +714,11 @@ function submit4() {
         loadQuestionLvl5()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 5
         document.querySelector('#level').innerText = `5. Hermoine Granger`
         //change levelCharacter image
@@ -717,20 +731,45 @@ function submit4() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than max(21), load another level 4 question
     } else if (buttonChecked !== level4[savedRandomLvl4].correctAnswer && questionNum.innerText < 21){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level4[savedRandomLvl4].correctAnswer}`)
         //remove question that has already been used from the level array
         level4.splice(savedRandomLvl4, 1)
         loadQuestionLvl4()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is equal to max(21) **END GAME**
     } else if (buttonChecked !== level4[savedRandomLvl4].correctAnswer && questionNum.innerText >= 21){
-        alert('Incorrect! GAME OVER')
-        //clear radio button selection
-        document.querySelector('input[name= "radio"]:checked').checked = false
+        alert(`Incorrect! The correct answer is ${level4[savedRandomLvl4].correctAnswer}`)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
+        if(scoreText.innerText <= 20){
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
+        }
     }
 }
 
@@ -748,11 +787,11 @@ function submit5() {
         loadQuestionLvl5()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered 15 or more questions, load level 6 question
@@ -761,11 +800,11 @@ function submit5() {
         loadQuestionLvl6()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 6
         document.querySelector('#level').innerText = `6. Minerva McGonagall`
         //change levelCharacter image
@@ -778,20 +817,45 @@ function submit5() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than max(21), load another level 5 question
     } else if (buttonChecked !== level5[savedRandomLvl5].correctAnswer && questionNum.innerText < 21){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level5[savedRandomLvl5].correctAnswer}`)
         //remove question that has already been used from the level array
         level5.splice(savedRandomLvl5, 1)
         loadQuestionLvl5()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is equal to max(21) **END GAME**
     } else if (buttonChecked !== level5[savedRandomLvl5].correctAnswer && questionNum.innerText >= 21){
-        alert('Incorrect! GAME OVER')
-        //clear radio button selection
-        document.querySelector('input[name= "radio"]:checked').checked = false
+        alert(`Incorrect! The correct answer is ${level5[savedRandomLvl5].correctAnswer}`)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
+        if(scoreText.innerText <= 20){
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
+        }
     }
 }
 
@@ -809,11 +873,11 @@ function submit6() {
         loadQuestionLvl6()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered 18 or more questions, load level 7 question
@@ -822,11 +886,11 @@ function submit6() {
         loadQuestionLvl7()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //change displayed level to level 7
         document.querySelector('#level').innerText = `7. Albus Dumbledore`
         //change levelCharacter image
@@ -839,20 +903,45 @@ function submit6() {
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect, and have answered less than max(21), load another level 6 question
     } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer && questionNum.innerText < 21){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level2[savedRandomLvl2].correctAnswer}`)
         //remove question that has already been used from the level array
         level6.splice(savedRandomLvl6, 1)
         loadQuestionLvl6()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is equal to max(21) **END GAME**
     } else if (buttonChecked !== level6[savedRandomLvl6].correctAnswer && questionNum.innerText >= 21){
-        alert('Incorrect! GAME OVER')
-        //clear radio button selection
-        document.querySelector('input[name= "radio"]:checked').checked = false
+        alert(`Incorrect! The correct answer is ${level6[savedRandomLvl6].correctAnswer}`)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
+        if(scoreText.innerText <= 20){
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
+        }
     }
 }
 
@@ -870,11 +959,11 @@ function submit7() {
         loadQuestionLvl7()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if correct and have answered 21 questions, **END GAME
@@ -883,25 +972,75 @@ function submit7() {
         //increment score 
         score+=scoreIncrement
         //display the score as a percent
-        scoreText.innerText = ' ' + Math.round((score * 100)).toFixed(0) + '%'
-        //clear radio button selection
-        document.querySelector('input[name= "radio"]:checked').checked = false
+        scoreText.innerText = Math.round((score * 100)).toFixed(0)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
+        if(scoreText.innerText <= 20){
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
+        }
 //if incorrect, and have answered less than max(21), load another level 7 question
     } else if (buttonChecked !== level7[savedRandomLvl7].correctAnswer && questionNum.innerText < 21){
-        alert('Incorrect!')
+        alert(`Incorrect! The correct answer is ${level7[savedRandomLvl7].correctAnswer}`)
         //remove question that has already been used from the level array
         level7.splice(savedRandomLvl7, 1)
         loadQuestionLvl7()
         //increment question number
         question+=1
-        questionNum.innerText = ' ' + question
+        questionNum.innerText = question
         //clear radio button selection
         document.querySelector('input[name= "radio"]:checked').checked = false
 //if incorrect and number of questions answered is equal to max(21) **END GAME**
     } else if (buttonChecked !== level7[savedRandomLvl7].correctAnswer && questionNum.innerText >= 21){
-        alert('Incorrect! GAME OVER')
-        //clear radio button selection
-        document.querySelector('input[name= "radio"]:checked').checked = false
+        alert(`Incorrect! The correct answer is ${level7[savedRandomLvl7].correctAnswer}`)
+        setTimeout(function endScreen() {
+            document.querySelector('#headerContent').style.display = 'none';
+            document.querySelector('#content').style.display = 'none';
+            document.querySelector('#scoreDiv').style.display = 'none';
+            document.body.style.background = "url('https://i.imgur.com/j6fB2OX.jpg') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+            document.querySelector('#endGame').style.display = 'flex';
+            document.querySelector('#gameCompleted').style.marginTop = '2%';
+            document.querySelector('#gameCompleted').style.margin = '0%';
+            document.querySelector('#gameCompleted').style.fontSize = '200%';
+            document.querySelector('.heading2').style.margin = '0%';
+            document.querySelector('.heading2').style.marginBottom = '4%';
+            document.querySelector('#wizardType').style.marginTop = '0%';
+            document.querySelector('#wizardType').style.fontSize = '120%';
+            document.querySelector('.endScore').style.color = 'firebrick';
+            document.querySelector('#endScore').innerText = `${scoreText.innerText}`}, 900)
+        if(scoreText.innerText <= 20){
+            document.querySelector('#wizardType').innerText = `a MUGGLE`
+        } else if (scoreText.innerText > 20 && scoreText.innerText <= 40){
+            document.querySelector('#wizardType').innerText = `a FIRST-YEAR HOGWARTS STUDENT`
+        } else if (scoreText.innerText > 40 && scoreText.innerText <= 60){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS GRADUATE`
+        } else if (scoreText.innerText > 60 && scoreText.innerText <= 80){
+            document.querySelector('#wizardType').innerText = `a HOGWARTS PROFESSOR`
+        } else if (scoreText.innerText > 80) {
+            document.querySelector('#wizardType').innerText = `an EXPERT WIZARD`
+        }
     }
 }
 

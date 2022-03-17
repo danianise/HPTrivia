@@ -97,7 +97,7 @@ body {
     background-image: linear-gradient(to left, #a60cb4 0%, #a60cb4 51%, #211fa0 100%)
 }
 
-#scoreNum, #questionNum, #level {
+.scoreNum, #questionNum, #level {
     color: white;
 }
 
@@ -138,6 +138,6 @@ h2{
     font-size: 120%;
 }
 
-#endScore{
+.endScore{
     color: firebrick;
 } */
